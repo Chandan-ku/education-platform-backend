@@ -3,9 +3,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/collegenet_db
-    username: postgres
-    password: chandan
+    #url: jdbc:postgresql://localhost:5432/collegenet_db
+    url: jdbc:postgresql://ep-noisy-frost-aqijdrfv.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require
+    username: neondb_owner
+    password: npg_w2GsdKAP1RZD
     hikari:
       connection-timeout: 20000
       maximum-pool-size: 5

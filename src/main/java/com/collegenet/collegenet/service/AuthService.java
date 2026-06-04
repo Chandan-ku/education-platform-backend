@@ -7,6 +7,7 @@ import com.collegenet.collegenet.entity.User;
 import com.collegenet.collegenet.entity.Role;
 import com.collegenet.collegenet.entity.Student;
 import com.collegenet.collegenet.exception.AuthenticationException;
+import com.collegenet.collegenet.exception.DuplicateEmailException;
 import com.collegenet.collegenet.repo.UserRepo;
 import com.collegenet.collegenet.repo.StudentRepo;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -31,7 +32,7 @@ public class AuthService {
     public AuthResponse register(RegisterRequest request) {
         // check if email exists
         if (userRepo.findByEmail(request.getEmail()) != null) {
-            throw new AuthenticationException("Email is already in use");
+            throw new DuplicateEmailException("Email is already in use");
         }
 
         User user = new User();
